@@ -550,6 +550,7 @@ export interface IssueFilters {
   touchedByUserId?: string;
   inboxArchivedByUserId?: string;
   unreadForUserId?: string;
+  updatedAfter?: Date;
   projectId?: string;
   workspaceId?: string;
   executionWorkspaceId?: string;
@@ -5490,6 +5491,9 @@ export function issueService(db: Db) {
       }
       if (unreadForUserId) {
         conditions.push(unreadForUserCondition(companyId, unreadForUserId));
+      }
+      if (filters?.updatedAfter) {
+        conditions.push(gt(issues.updatedAt, filters.updatedAfter));
       }
       if (filters?.projectId) conditions.push(eq(issues.projectId, filters.projectId));
       if (filters?.workspaceId) {
