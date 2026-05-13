@@ -2627,13 +2627,11 @@ async function listIssueBlockerAttentionMap(
       };
     }
     if (node.status === "backlog" && node.assigneeAgentId) {
-      return {
-        covered: false,
-        stalled: false,
-        sampleBlockerIdentifier: nodeSample,
-        sampleStalledBlockerIdentifier: null,
-        terminalBlockerIssueId: node.id,
-      };
+      // In backlog, if no active run, it is attention needed
+      if (!activeIssueIds.has(node.id)) {
+        return { covered: false, stalled: false, sampleBlockerIdentifier: nodeSample, sampleStalledBlockerIdentifier: null };
+      }
+      return { covered: true, stalled: false, sampleBlockerIdentifier: nodeSample, sampleStalledBlockerIdentifier: null };
     }
 
     const downstream = (edgesByIssueId.get(node.id) ?? []).filter((edge) => {
