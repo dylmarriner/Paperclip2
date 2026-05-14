@@ -150,6 +150,7 @@ describeEmbeddedPostgres("heartbeat stale queued-run invalidation", () => {
   }, 20_000);
 
   afterEach(async () => {
+  vi.setConfig({ hookTimeout: 30000 });
     mockAdapterExecute.mockReset();
     mockAdapterExecute.mockImplementation(async () => ({
       exitCode: 0,
