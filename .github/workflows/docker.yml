@@ -126,6 +126,9 @@ jobs:
           echo "Disk after cleanup:"
           df -h
 
+      - name: Set up QEMU for multi-arch builds
+        uses: docker/setup-qemu-action@v3
+
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v4
         with:
