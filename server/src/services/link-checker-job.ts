@@ -1,4 +1,4 @@
-import { Db } from "@paperclipai/db";
+import type { Db } from "@paperclipai/db";
 import { LinkCheckerService, withRetry } from "./link-checker.js";
 import { logger } from "../middleware/logger.js";
 import fs from "node:fs/promises";
