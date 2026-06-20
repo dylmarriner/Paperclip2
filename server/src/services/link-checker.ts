@@ -286,6 +286,7 @@ export class LinkCheckerService {
         method: "GET",
         redirect: redirectExpected ? "manual" : "follow",
         signal: controller.signal,
+        headers: { "User-Agent": this.USER_AGENT },
       })
 
       clearTimeout(timeout)
@@ -353,11 +354,30 @@ export class LinkCheckerService {
     }
   }
 
-  async checkAllRedirectRules(): Promise<{ checked: number; passed: number; failed: number }> {
+  async checkAllRedirectRules(): Promise<{
+    checked: number
+    passed: number
+    failed: number
+    details: Array<{
+      id: string
+      sourceUrl: string
+      targetUrl: string
+      statusCode: number
+      success: boolean
+      error: string | null
+    }>
+  }> {
     const rules = await this.db.select().from(redirectRules).where(eq(redirectRules.isActive, true))
 
     let passed = 0
-    let failed = 0
+    const details: Array<{
+      id: string
+      sourceUrl: string
+      targetUrl: string
+      statusCode: number
+      success: boolean
+      error: string | null
+    }> = []
 
     for (const rule of rules) {
       const result = await this.verifyUrl(rule.sourceUrl, rule.statusCode, true, rule.targetUrl)
@@ -371,15 +391,24 @@ export class LinkCheckerService {
         })
         .where(eq(redirectRules.id, rule.id))
 
+      details.push({
+        id: rule.id,
+        sourceUrl: rule.sourceUrl,
+        targetUrl: rule.targetUrl,
+        statusCode: rule.statusCode,
+        success: result.success,
+        error: result.error ?? null,
+      })
+
       if (result.success) {
         passed++
       } else {
-        failed++
         logger.error({ url: rule.sourceUrl, target: rule.targetUrl, error: result.error }, "Broken redirect detected")
       }
     }
 
-    return { checked: rules.length, passed, failed }
+    const failed = rules.length - passed
+    return { checked: rules.length, passed, failed, details }
   }
 
   async getActiveRules(): Promise<RedirectRuleRow[]> {

@@ -92,6 +92,15 @@ export async function runLinkCheckerJob(db: Db): Promise<LinkCheckerJobResult> {
   const redirectResult = await checker.checkAllRedirectRules();
   if (redirectResult.failed > 0) {
     errors.push(`${redirectResult.failed} of ${redirectResult.checked} redirect rules failed`);
+    for (const detail of redirectResult.details) {
+      if (!detail.success) {
+        errors.push(`  ${detail.sourceUrl} -> ${detail.targetUrl}: ${detail.error ?? "unknown"}`);
+        logger.error(
+          { sourceUrl: detail.sourceUrl, targetUrl: detail.targetUrl, error: detail.error },
+          "Broken redirect rule",
+        );
+      }
+    }
   }
   logger.info(
     { checked: redirectResult.checked, passed: redirectResult.passed, failed: redirectResult.failed },

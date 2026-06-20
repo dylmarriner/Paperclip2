@@ -190,6 +190,87 @@ describe("withRetry", () => {
   }, 15000)
 })
 
+describe("checkAllRedirectRules", () => {
+  it("returns details array with per-rule info", async () => {
+    const rules = [
+      { id: "rule-1", sourceUrl: "http://localhost:1/a", targetUrl: "http://localhost:1/b", statusCode: 302, description: null, isActive: true, lastCheckedAt: null, lastCheckResult: null, createdAt: new Date(), updatedAt: new Date() },
+      { id: "rule-2", sourceUrl: "http://localhost:1/c", targetUrl: "http://localhost:1/d", statusCode: 301, description: "test", isActive: true, lastCheckedAt: null, lastCheckResult: null, createdAt: new Date(), updatedAt: new Date() },
+    ]
+    const db = {
+      select: vi.fn().mockReturnValue({
+        from: vi.fn().mockReturnValue({
+          where: vi.fn().mockResolvedValue(rules),
+        }),
+      }),
+      update: vi.fn().mockReturnValue({
+        set: vi.fn().mockReturnValue({
+          where: vi.fn().mockResolvedValue(undefined),
+        }),
+      }),
+    } as unknown as Db
+
+    const service = new LinkCheckerService(db)
+    vi.spyOn(service, "verifyUrl").mockResolvedValue({ success: true, status: 200 })
+    const result = await service.checkAllRedirectRules()
+
+    expect(result.checked).toBe(2)
+    expect(result.details).toHaveLength(2)
+    expect(result.details[0].id).toBe("rule-1")
+    expect(result.details[0].sourceUrl).toBe("http://localhost:1/a")
+    expect(result.details[0].success).toBe(true)
+    expect(result.details[0].error).toBeNull()
+    expect(result.failed).toBe(0)
+    expect(result.passed).toBe(2)
+    expect(result.checked).toBe(result.passed + result.failed)
+  })
+
+  it("reports failure details for broken URLs", async () => {
+    const rules = [
+      { id: "rule-1", sourceUrl: "http://localhost:1/a", targetUrl: "http://localhost:1/b", statusCode: 302, description: null, isActive: true, lastCheckedAt: null, lastCheckResult: null, createdAt: new Date(), updatedAt: new Date() },
+    ]
+    const db = {
+      select: vi.fn().mockReturnValue({
+        from: vi.fn().mockReturnValue({
+          where: vi.fn().mockResolvedValue(rules),
+        }),
+      }),
+      update: vi.fn().mockReturnValue({
+        set: vi.fn().mockReturnValue({
+          where: vi.fn().mockResolvedValue(undefined),
+        }),
+      }),
+    } as unknown as Db
+
+    const service = new LinkCheckerService(db)
+    vi.spyOn(service, "verifyUrl").mockResolvedValue({ success: false, status: 404, error: "Expected status 302, got 404" })
+    const result = await service.checkAllRedirectRules()
+
+    expect(result.checked).toBe(1)
+    expect(result.passed).toBe(0)
+    expect(result.failed).toBe(1)
+    expect(result.details[0].success).toBe(false)
+    expect(result.details[0].error).toContain("404")
+  })
+
+  it("handles empty rules gracefully", async () => {
+    const db = {
+      select: vi.fn().mockReturnValue({
+        from: vi.fn().mockReturnValue({
+          where: vi.fn().mockResolvedValue([]),
+        }),
+      }),
+    } as unknown as Db
+
+    const service = new LinkCheckerService(db)
+    const result = await service.checkAllRedirectRules()
+
+    expect(result.checked).toBe(0)
+    expect(result.passed).toBe(0)
+    expect(result.failed).toBe(0)
+    expect(result.details).toHaveLength(0)
+  })
+})
+
 describe("external link verification", () => {
   let siteServer: Server
   let extServer: Server

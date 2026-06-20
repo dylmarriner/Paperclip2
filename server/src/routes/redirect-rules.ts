@@ -108,5 +108,31 @@ export function redirectRuleRoutes(db: Db): Router {
     }
   })
 
+  router.get("/failures", async (_req, res, next) => {
+    try {
+      const rules = await db
+        .select()
+        .from(redirectRules)
+        .where(eq(redirectRules.isActive, true))
+        .orderBy(redirectRules.sourceUrl)
+
+      const failures = rules
+        .filter((r) => r.lastCheckResult && r.lastCheckResult !== "success")
+        .map((r) => ({
+          id: r.id,
+          sourceUrl: r.sourceUrl,
+          targetUrl: r.targetUrl,
+          statusCode: r.statusCode,
+          description: r.description,
+          lastCheckResult: r.lastCheckResult,
+          lastCheckedAt: r.lastCheckedAt?.toISOString() ?? null,
+        }))
+
+      res.json(failures)
+    } catch (err) {
+      next(err)
+    }
+  })
+
   return router
 }
