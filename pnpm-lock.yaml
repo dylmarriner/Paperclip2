@@ -8,7 +8,7 @@ overrides:
   rollup: '>=4.59.0'
   react: ^19.2.7
   react-dom: ^19.2.7
-  lexical: 0.49.0
+  lexical: 0.46.0
   '@lexical/clipboard': 0.46.0
   '@lexical/link': 0.46.0
   '@lexical/list': 0.46.0
@@ -891,8 +891,8 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
       open:
-        specifier: ^11.0.0
-        version: 11.0.0
+        specifier: ^11.0.1
+        version: 11.0.1
       pino:
         specifier: ^9.6.0
         version: 9.14.0
@@ -1045,8 +1045,8 @@ importers:
         specifier: ^26.3.6
         version: 26.3.6(typescript@5.9.3)
       lexical:
-        specifier: 0.49.0
-        version: 0.49.0(typescript@5.9.3)
+        specifier: 0.46.0
+        version: 0.46.0(typescript@5.9.3)
       lucide-react:
         specifier: ^0.577.0
         version: 0.577.0(react@19.2.7)
@@ -2985,14 +2985,6 @@ packages:
 
   '@lexical/internal@0.46.0':
     resolution: {integrity: sha512-OV1ePAAnVVd0K+Bq5SX7vOKE/LqJLYcDM4HD4zVCisbgVaznE+pTj/nDB2uWTidwf8o7QhPR65VhEi+KkUtyEw==}
-    peerDependencies:
-      typescript: '>=5.2'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
-  '@lexical/internal@0.49.0':
-    resolution: {integrity: sha512-s+XjPC7Qb39A/Xx9ahcz1s69CPix4ultaqyW+MDG0AXYW2quDr7m0USqReKIAiuoLIWtGN5HW8BwV2Y6t4qr6Q==}
     peerDependencies:
       typescript: '>=5.2'
     peerDependenciesMeta:
@@ -6445,6 +6437,10 @@ packages:
     resolution: {integrity: sha512-H9LMLr5zwIbSxrmvikGuI/5KGhZ8E2zH3stkMgM5LpOWDutGM2JZaj460Udnf1a+946zc7YBgrqEWwbk7zHvGw==}
     engines: {node: '>=18'}
 
+  default-browser@5.5.1:
+    resolution: {integrity: sha512-m1pAzaJgZ/gssEqlOhJkPJp8Xly7QyW6xcrkUa2KKcDeDSEMP7X8xipU3snUcfisTQx0w1AGae+9UtJSfVnXGw==}
+    engines: {node: '>=18'}
+
   define-lazy-prop@3.0.0:
     resolution: {integrity: sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==}
     engines: {node: '>=12'}
@@ -7306,8 +7302,8 @@ packages:
   layout-base@2.0.1:
     resolution: {integrity: sha512-dp3s92+uNI1hWIpPGH3jK2kxE2lMjdXdr+DH8ynZHpd6PUlH6x6cbuXnoMmiNumznqaNO31xu9e79F0uuZ0JFg==}
 
-  lexical@0.49.0:
-    resolution: {integrity: sha512-9V1ZIzGpJEd8rIN+nN7veL4fW4fFWbS66Un4JNqSZB4D5t9euzN9+3+jEXy83FjNjNy0MiiUI3+DQaGCLYko0w==}
+  lexical@0.46.0:
+    resolution: {integrity: sha512-oaE7OLY/FuqGKC7ihaqLJvgn/NvvRveryKBBgOwrSe+UIpBmc9IvyXf6hVcvew9M3Vc0XavHWe/ZAL7qc5DzMw==}
     peerDependencies:
       typescript: '>=5.2'
     peerDependenciesMeta:
@@ -7853,6 +7849,10 @@ packages:
     resolution: {integrity: sha512-smsWv2LzFjP03xmvFoJ331ss6h+jixfA4UUV/Bsiyuu4YJPfN+FIQGOIiv4w9/+MoHkfkJ22UIaQWRVFRfH6Vw==}
     engines: {node: '>=20'}
 
+  open@11.0.1:
+    resolution: {integrity: sha512-NzwMUB6C1D0+Kd+9iMS/H4k+Ck3cTX6Ckyfr/gAGlmvSE1LUQZnEZvWBi4PYmMwH/S5SMeTXnE+9uAz8uF+pWw==}
+    engines: {node: '>=20'}
+
   outvariant@1.4.0:
     resolution: {integrity: sha512-AlWY719RF02ujitly7Kk/0QlV+pXGFDHrHf9O2OKqyqgBieaPOIeuSkL8sRK6j2WK+/ZAURq2kZsY0d8JapUiw==}
 
@@ -8041,6 +8041,10 @@ packages:
 
   powershell-utils@0.1.0:
     resolution: {integrity: sha512-dM0jVuXJPsDN6DvRpea484tCUaMiXWjuCn++HGTqUWzGDjv5tZkEZldAJ/UMlqRYGFrD/etByo4/xOuC/snX2A==}
+    engines: {node: '>=20'}
+
+  powershell-utils@0.2.1:
+    resolution: {integrity: sha512-C+y9x90UElAddDZmV4qOx9W53B61PO7cIqWz2dQsWlwswuq4mr8NEwytdGKboYbQlGZ3awrkTeNvcZiZNHnQ8A==}
     engines: {node: '>=20'}
 
   prebuild-install@7.1.3:
@@ -9157,6 +9161,10 @@ packages:
 
   wsl-utils@0.3.1:
     resolution: {integrity: sha512-g/eziiSUNBSsdDJtCLB8bdYEUMj4jR7AGeUo96p/3dTafgjHhpF4RiCFPiRILwjQoDXx5MqkBr4fwWtR3Ky4Wg==}
+    engines: {node: '>=20'}
+
+  wsl-utils@1.0.0:
+    resolution: {integrity: sha512-Hl0ZOAs672vg+06kfujwRhoS6/jehvULrlFkuF2dRu6pHgA8U06h3xqNIqNNU1LTXPcedxByAR4GS6pwQK0mgA==}
     engines: {node: '>=20'}
 
   xml-name-validator@5.0.0:
@@ -10923,7 +10931,7 @@ snapshots:
       '@lexical/selection': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
       '@types/trusted-types': 2.0.7
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -10933,7 +10941,7 @@ snapshots:
       '@lexical/html': 0.46.0(typescript@5.9.3)
       '@lexical/internal': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -10944,7 +10952,7 @@ snapshots:
       '@lexical/mark': 0.46.0(typescript@5.9.3)
       '@lexical/table': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
       react: 19.2.7
       react-dom: 19.2.7(react@19.2.7)
     optionalDependencies:
@@ -10953,7 +10961,7 @@ snapshots:
   '@lexical/dragon@0.46.0(typescript@5.9.3)':
     dependencies:
       '@lexical/extension': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -10962,7 +10970,7 @@ snapshots:
       '@lexical/internal': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
       '@preact/signals-core': 1.14.4
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -10970,7 +10978,7 @@ snapshots:
     dependencies:
       '@lexical/text': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -10978,7 +10986,7 @@ snapshots:
     dependencies:
       '@lexical/extension': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -10988,15 +10996,11 @@ snapshots:
       '@lexical/internal': 0.46.0(typescript@5.9.3)
       '@lexical/selection': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
   '@lexical/internal@0.46.0(typescript@5.9.3)':
-    optionalDependencies:
-      typescript: 5.9.3
-
-  '@lexical/internal@0.49.0(typescript@5.9.3)':
     optionalDependencies:
       typescript: 5.9.3
 
@@ -11006,7 +11010,7 @@ snapshots:
       '@lexical/html': 0.46.0(typescript@5.9.3)
       '@lexical/internal': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -11016,14 +11020,14 @@ snapshots:
       '@lexical/html': 0.46.0(typescript@5.9.3)
       '@lexical/internal': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
   '@lexical/mark@0.46.0(typescript@5.9.3)':
     dependencies:
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -11037,13 +11041,13 @@ snapshots:
       '@lexical/selection': 0.46.0(typescript@5.9.3)
       '@lexical/text': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
   '@lexical/overflow@0.46.0(typescript@5.9.3)':
     dependencies:
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -11054,7 +11058,7 @@ snapshots:
       '@lexical/extension': 0.46.0(typescript@5.9.3)
       '@lexical/selection': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -11078,7 +11082,7 @@ snapshots:
       '@lexical/text': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
       '@lexical/yjs': 0.46.0(typescript@5.9.3)(yjs@13.6.29)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
       react: 19.2.7
       react-dom: 19.2.7(react@19.2.7)
     optionalDependencies:
@@ -11093,14 +11097,14 @@ snapshots:
       '@lexical/html': 0.46.0(typescript@5.9.3)
       '@lexical/selection': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
   '@lexical/selection@0.46.0(typescript@5.9.3)':
     dependencies:
       '@lexical/internal': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -11111,14 +11115,14 @@ snapshots:
       '@lexical/html': 0.46.0(typescript@5.9.3)
       '@lexical/internal': 0.46.0(typescript@5.9.3)
       '@lexical/utils': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
   '@lexical/text@0.46.0(typescript@5.9.3)':
     dependencies:
       '@lexical/internal': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -11126,7 +11130,7 @@ snapshots:
     dependencies:
       '@lexical/internal': 0.46.0(typescript@5.9.3)
       '@lexical/selection': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -11134,7 +11138,7 @@ snapshots:
     dependencies:
       '@lexical/internal': 0.46.0(typescript@5.9.3)
       '@lexical/selection': 0.46.0(typescript@5.9.3)
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
       yjs: 13.6.29
     optionalDependencies:
       typescript: 5.9.3
@@ -11275,7 +11279,7 @@ snapshots:
       codemirror: 6.0.2
       downshift: 7.6.2(react@19.2.7)
       js-yaml: 4.1.1
-      lexical: 0.49.0(typescript@5.9.3)
+      lexical: 0.46.0(typescript@5.9.3)
       mdast-util-directive: 3.1.0
       mdast-util-from-markdown: 2.0.3
       mdast-util-frontmatter: 2.0.1
@@ -14491,6 +14495,11 @@ snapshots:
       bundle-name: 4.1.0
       default-browser-id: 5.0.1
 
+  default-browser@5.5.1:
+    dependencies:
+      bundle-name: 4.1.0
+      default-browser-id: 5.0.1
+
   define-lazy-prop@3.0.0: {}
 
   defu@6.1.7: {}
@@ -15481,9 +15490,9 @@ snapshots:
 
   layout-base@2.0.1: {}
 
-  lexical@0.49.0(typescript@5.9.3):
+  lexical@0.46.0(typescript@5.9.3):
     dependencies:
-      '@lexical/internal': 0.49.0(typescript@5.9.3)
+      '@lexical/internal': 0.46.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -16315,7 +16324,7 @@ snapshots:
 
   open@10.2.0:
     dependencies:
-      default-browser: 5.5.0
+      default-browser: 5.5.1
       define-lazy-prop: 3.0.0
       is-inside-container: 1.0.0
       wsl-utils: 0.1.0
@@ -16328,6 +16337,15 @@ snapshots:
       is-inside-container: 1.0.0
       powershell-utils: 0.1.0
       wsl-utils: 0.3.1
+
+  open@11.0.1:
+    dependencies:
+      default-browser: 5.5.1
+      define-lazy-prop: 3.0.0
+      is-in-ssh: 1.0.0
+      is-inside-container: 1.0.0
+      powershell-utils: 0.2.1
+      wsl-utils: 1.0.0
 
   outvariant@1.4.0: {}
 
@@ -16569,6 +16587,8 @@ snapshots:
   postgres@3.4.9: {}
 
   powershell-utils@0.1.0: {}
+
+  powershell-utils@0.2.1: {}
 
   prebuild-install@7.1.3:
     dependencies:
@@ -17981,6 +18001,11 @@ snapshots:
       is-wsl: 3.1.1
 
   wsl-utils@0.3.1:
+    dependencies:
+      is-wsl: 3.1.1
+      powershell-utils: 0.1.0
+
+  wsl-utils@1.0.0:
     dependencies:
       is-wsl: 3.1.1
       powershell-utils: 0.1.0
