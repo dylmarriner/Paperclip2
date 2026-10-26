@@ -61,7 +61,7 @@
     "mermaid": "^11.16.0",
     "radix-ui": "^1.6.4",
     "react": "^19.2.7",
-    "react-dom": "^19.2.8",
+    "react-dom": "^19.3.1",
     "react-i18next": "^17.0.10",
     "react-markdown": "^10.1.0",
     "react-resizable-panels": "^4.14.3",
